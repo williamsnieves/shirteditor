@@ -1,0 +1,9 @@
+body {
+  background: #ccc; }
+
+canvas {
+  border: 1px solid #eee; }
+
+.wrapper {
+  width: 50%;
+  margin: 0 auto; }

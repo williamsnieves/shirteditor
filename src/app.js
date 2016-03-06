@@ -1,7 +1,4 @@
 import React from 'react'
+import Main from './components/main'
 
-var Main = React.createClass({
-  render(){
-
-  }
-})
+React.render(<Main/>, document.body)
