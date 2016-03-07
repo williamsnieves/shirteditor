@@ -7,3 +7,10 @@ canvas {
 .wrapper {
   width: 50%;
   margin: 0 auto; }
+
+.canvas-button {
+  display: block;
+  margin: 1em 0 0 0; }
+
+#wrapper-description {
+  display: none; }
