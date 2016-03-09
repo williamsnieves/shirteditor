@@ -16,14 +16,20 @@ export default React.createClass({
           originX: 'center',
           originY: 'center'
         });
+        /*oImg.filters.push(
+    			new fabric.Image.filters.Grayscale()
+    		)
+        oImg.applyFilters(canvas.renderAll.bind(canvas))*/
         canvas.add(oImg);
         canvas.sendToBack(oImg)
+
+
     });
   },
   render(){
     let {url} = this.props;
     return (
-      <div>
+      <div className="image-wrapper-pic">
         <img src={url} onClick={this.clickHandler}/>
       </div>
     )

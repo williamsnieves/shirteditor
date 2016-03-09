@@ -15,6 +15,23 @@ canvas{
   display: block;
   margin: 1em 0 0 0;
 }
+.image-wrapper{
+  display: flex;
+  width: 42.5em;
+  background: white;
+  box-shadow: 0 3px 3px #999;
+}
+.image-wrapper-pic img{
+  width: 6.75em;
+  padding-right: 0.4em;
+}
+.wrapper-filters{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 9em;
+}
 
 #wrapper-description{
   display: none;

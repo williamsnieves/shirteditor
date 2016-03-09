@@ -5,7 +5,7 @@ export default React.createClass({
 
   render(){
     return (
-      <div>
+      <div className="image-wrapper">
         <ImageSrc url="assets/barcaback.png" canvas={this.props.canvas} />
         <ImageSrc url="assets/arsenalback.png" canvas={this.props.canvas} />
         <ImageSrc url="assets/bayernback.png" canvas={this.props.canvas} />

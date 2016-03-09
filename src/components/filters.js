@@ -14,6 +14,11 @@ export default React.createClass({
 
 
   },
+  getInitialState(){
+    return {
+      complete: false
+    }
+  },
   getDomId(id){
     return document.getElementById(id)
   },
@@ -59,20 +64,40 @@ export default React.createClass({
     this.props.canvas.renderAll();
     console.log("left", e.target.value);
   },
-  changeSepiaHandler(e){
-    e.preventDefault();
-    console.log("sepia", e.target.value);
-  },
   changeGrayHandler(e){
     e.preventDefault();
-    console.log("gray", e.target.value);
+    this.setState({
+      complete: !this.state.complete
+    })
+    console.log(this.state)
+    let {canvas} = this.props;
+    var elementsCanvas = this.props.canvas.getObjects();
+    if(this.state.complete){
+      console.log("coloco el filtro")
+      console.log(this.props.canvas.getObjects())
+
+      elementsCanvas[0].filters.push(
+        new fabric.Image.filters.Grayscale()
+      )
+      elementsCanvas[0].applyFilters(canvas.renderAll.bind(canvas))
+    }else{
+      console.log("quito el filtro")
+      if(elementsCanvas.length > 0){
+        elementsCanvas[0].filters.shift()
+        elementsCanvas[0].applyFilters(canvas.renderAll.bind(canvas))
+      }
+    }
+    //console.log("sepia", e.target.checked);
   },
   updateControls(){
      this.customText.value = this.customText.getAngle();
   },
+  toggleOption(){
+
+  },
   render(){
     return (
-      <div>
+      <div className="wrapper-filters">
         <p>
           <button onClick={this.addTextHandler} className="create-button">Add text</button>
         </p>
@@ -101,14 +126,8 @@ export default React.createClass({
         </p>
         <p>
           <label>
-            <span>Sepia:</span>
-            <input onClick={this.changeSepiaHandler} type="checkbox" id="sepia-control"/>
-          </label>
-        </p>
-        <p>
-          <label>
-            <span>Grayscale:</span>
-            <input onClick={this.changeGrayHandler} type="checkbox" id="gray-control"/>
+            <span>Gray:</span>
+            <input onChange={this.changeGrayHandler} type="checkbox" defaultChecked={this.state.complete}  id="gray-control"/>
           </label>
         </p>
       </div>
