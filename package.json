@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack && gulp",
-    "deploy": "surge -p public -d laber.surge.sh",
+    "deploy": "surge -p public -d shirt.surge.sh",
     "start": "webpack-dev-server",
     "commit": "git add -A && git commit -m \"$(date)\" && npm version minor && git push origin master"
   },
